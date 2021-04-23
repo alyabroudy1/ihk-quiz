@@ -18,7 +18,7 @@ jwt:
 	openssl rsa -pubout -in $(JWT_FOLDER)private.pem -passin pass:$(JWT_PRIVATE_PW) -out $(JWT_FOLDER)public.pem
 
 res:
-	$(SYMFONY_CMD) doctrine:database:drop --force --env=test
-	$(SYMFONY_CMD) doc:database:create --if-not-exists -vv  --env=test && \
-	$(SYMFONY_CMD) do:mi:mi --allow-no-migration -n -vv --env=test
-	$(SYMFONY_CMD) doc:fixtures:load --no-interaction --group=test --env=test
+	$(SYMFONY_CMD) doctrine:database:drop --force --env=dev
+	$(SYMFONY_CMD) doc:database:create --if-not-exists -vv  --env=dev && \
+	$(SYMFONY_CMD) do:mi:mi --allow-no-migration -n -vv --env=dev
+	$(SYMFONY_CMD) doc:fixtures:load --no-interaction --env=dev
